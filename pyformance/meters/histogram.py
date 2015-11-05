@@ -29,8 +29,6 @@ class Histogram(object):
         with self.lock:
             self.sample.update(value)
             self.counter = self.counter + 1
-            self.max = value if value > self.max else self.max
-            self.min = value if value < self.min else self.min
             self.sum = self.sum + value
             self._update_var(value)
 
@@ -39,8 +37,6 @@ class Histogram(object):
         with self.lock:
             self.sample.clear()
             self.counter = 0.0
-            self.max = -2147483647.0
-            self.min = 2147483647.0
             self.sum = 0.0
             self.var = [-1.0, 0.0]
 
@@ -51,14 +47,6 @@ class Histogram(object):
     def get_sum(self):
         "get current sum"
         return self.sum
-
-    def get_max(self):
-        "get current maximum"
-        return self.max
-
-    def get_min(self):
-        "get current minimum"
-        return self.min
 
     def get_mean(self):
         "get current mean"

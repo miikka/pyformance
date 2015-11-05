@@ -17,8 +17,6 @@ class HistogramTestCase(TimedTestCase):
         for i in snapshot.values:
             self.assertTrue(0 <= i and i <= 1000)
 
-        self.assertEqual(999, hist.get_max())
-        self.assertEqual(0, hist.get_min())
         self.assertEqual(499.5, hist.get_mean())
         self.assertAlmostEqual(83416.6666, hist.get_var(), delta=0.0001)
 
@@ -35,8 +33,8 @@ class HistogramTestCase(TimedTestCase):
         for i in snapshot.values:
             self.assertTrue(0 <= i and i <= 10)
 
-        self.assertEqual(9, hist.get_max())
-        self.assertEqual(0, hist.get_min())
+        self.assertEqual(9, snapshot.get_max())
+        self.assertEqual(0, snapshot.get_min())
         self.assertEqual(4.5, hist.get_mean())
         self.assertAlmostEqual(9.1666, hist.get_var(), delta=0.0001)
 

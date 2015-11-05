@@ -36,14 +36,6 @@ class Timer(object):
         "get sum from internal histogram"
         return self.hist.get_sum()
 
-    def get_max(self):
-        "get max from internal histogram"
-        return self.hist.get_max()
-
-    def get_min(self):
-        "get min from internal histogram"
-        return self.hist.get_min()
-
     def get_mean(self):
         "get mean from internal histogram"
         return self.hist.get_mean()

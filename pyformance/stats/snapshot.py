@@ -18,6 +18,14 @@ class Snapshot(object):
         "get current size"
         return len(self.values)
 
+    def get_min(self):
+        "get current minimum value"
+        return self.values[0]
+
+    def get_max(self):
+        "get current maximum value"
+        return self.values[-1]
+
     def get_median(self):
         "get current median"
         return self.get_percentile(Snapshot.MEDIAN)
